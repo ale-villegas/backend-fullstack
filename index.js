@@ -7,6 +7,8 @@ const cors = require('cors')
 
 app.use(cors())
 
+app.use(express.static('dist'))
+
 app.use(express.json())
 morgan.token("payload", function (req) {
   return JSON.stringify(req.body)
@@ -42,10 +44,7 @@ let persons = [
 
 
 
-        app.get('/', (request, response) => {
-          response.send(" <h1>HOLAA</h1>  ")
-        })
-        
+      
 
 app.get('/persons', (request, response) => {
   response.json(persons)
